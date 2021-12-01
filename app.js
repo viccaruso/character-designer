@@ -12,16 +12,27 @@ const catchphraseInput = document.getElementById('catchphrase-input');
 const catchphraseButton = document.getElementById('catchphrase-button');
 
 // set state for how many times the user changes the head, middle, and bottom
+let headCount = 0;
+let middleCount = 0;
+let bottomCount = 0;
 // set state for all of the character's catchphrases
+let catchphrases = [];
 
 headDropdown.addEventListener('change', () => {
     // get the value of the head dropdown
-
+    let headValue = headDropdown.value;
     // increment the head change count state
-    
+    headCount++;
     // update the dom for the head
-
+    if (headEl.hasChildNodes()) { // if it has an image
+        const imageEl = headEl.firstChild;
+        headEl.removeChild(imageEl); // remove the image
+    }
+    const img = document.createElement('img');
+    img.src = `./assets/${headValue}-head.png`;
+    headEl.appendChild(img);
     // update the stats to show the new count
+    displayStats();
 });
 
 
@@ -33,6 +44,7 @@ middleDropdown.addEventListener('change', () => {
     // update the dom for the middle
 
     // update the stats to show the new count
+    
 });
 
 
@@ -57,8 +69,8 @@ catchphraseButton.addEventListener('click', () => {
 });
 
 function displayStats() {
-    // change the text contentof the reportEl to tell the user how many times they've changed each piece of the state
-    const statsString = makeStatsString(); // call this function with the correct arguments
+    // change the text content of the reportEl to tell the user how many times they've changed each piece of the state
+    const statsString = makeStatsString(headCount, middleCount, bottomCount); // call this function with the correct arguments
 }
 
 function displayCatchphrases() {
