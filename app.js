@@ -34,8 +34,11 @@ headDropdown.addEventListener('change', () => {
     }
     const img = document.createElement('img');
     img.src = `./assets/${headValue}-head.png`;
-    img.style.width = '50%';
-
+    img.style.width = '70%';
+    img.style.height = '70%';
+    headEl.style.display = 'flex';
+    headEl.style.flexDirection = 'column';
+    headEl.style.justifyContent = 'flex-end';
     headEl.appendChild(img);
     // update the stats to show the new count
     displayStats();
@@ -55,8 +58,11 @@ middleDropdown.addEventListener('change', () => {
     }
     const img = document.createElement('img');
     img.src = `./assets/${middleValue}-middle.png`;
-    img.style.width = '50%';
-
+    img.style.width = '70%';
+    img.style.height = '70%';
+    middleEl.style.display = 'flex';
+    middleEl.style.flexDirection = 'column';
+    middleEl.style.justifyContent = 'center';
     middleEl.appendChild(img);
     // update the stats to show the new count
     displayStats();
@@ -76,7 +82,11 @@ bottomDropdown.addEventListener('change', () => {
     }
     const img = document.createElement('img');
     img.src = `./assets/${bottomValue}-pants.png`;
-    img.style.width = '50%';
+    img.style.width = '70%';
+    img.style.height = '70%';
+    bottomEl.style.display = 'flex';
+    bottomEl.style.flexDirection = 'column';
+    bottomEl.style.justifyContent = 'flex-start';
     bottomEl.appendChild(img);
     // update the stats to show the new count
     displayStats();
